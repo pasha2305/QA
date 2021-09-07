@@ -1,11 +1,9 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-
-class SkipListTest {
-
+public class SkippListTest {
     @Test
-    void delete() {
+    public void delete() {
         SkippableList<Integer> list = new SkipList<>();
         list.insert(1);
         list.insert(2);
@@ -16,7 +14,7 @@ class SkipListTest {
     }
 
     @Test
-    void deleteMissing(){
+    public void deleteMissing(){
         SkippableList<Integer> list = new SkipList<>();
         list.insert(1);
         list.insert(2);
@@ -27,7 +25,7 @@ class SkipListTest {
     }
 
     @Test
-    void deleteOneOfMany(){
+    public void deleteOneOfMany(){
         SkippableList<Integer> list = new SkipList<>();
         list.insert(1);
         list.insert(2);
@@ -39,7 +37,7 @@ class SkipListTest {
     }
 
     @Test
-    void search(){
+    public void search(){
         SkippableList<Integer> list = new SkipList<>();
         list.insert(1);
         list.insert(2);
@@ -50,7 +48,7 @@ class SkipListTest {
     }
 
     @Test
-    void searchMissing(){
+    public void searchMissing(){
         SkippableList<Integer> list = new SkipList<>();
         list.insert(1);
         list.insert(2);
@@ -60,3 +58,4 @@ class SkipListTest {
         Assert.assertEquals(list.search(10),null);
     }
 }
+
