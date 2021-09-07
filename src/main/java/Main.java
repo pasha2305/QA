@@ -15,6 +15,7 @@ public class Main {
 interface SkippableList<Integer extends Comparable<? super Integer>> {
     int LEVELS = 4;
 
+    boolean delete(Integer target);
     void print();
     void insert(Integer data);
     SkipNode<Integer> search(Integer data);
@@ -47,6 +48,21 @@ class SkipList<T extends Comparable<? super T>> implements SkippableList<T> {
         }
 
         System.out.println();
+    }
+
+    @Override
+    public boolean delete(T target) {
+        System.out.println("Deleting " + target.toString());
+        SkipNode<T> victim = search(target, false);
+        if (victim == null) return false;
+        victim.data = null;
+
+        for (int i = 0; i < LEVELS; i++) {
+            head.refreshAfterDelete(i);
+        }
+
+        System.out.println();
+        return true;
     }
 
     private void insert(SkipNode<T> SkipNode, int level) {
